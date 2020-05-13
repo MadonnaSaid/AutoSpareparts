@@ -77,7 +77,7 @@ class Exports extends Model
 		)";
 		if($this->db->query($sql) === true)
 		{
-			echo "Records inserted successfully.";
+			echo "Record was successfully added<br>";
 			$this->fillArray();
 		} 
 		else{

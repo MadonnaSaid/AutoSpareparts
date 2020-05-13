@@ -45,7 +45,9 @@ body{
 			   <div class='row'>
 						 <div class='col-lg-12 text-center' >
 						   <h2 class='section-heading text-uppercase'>Export/Import</h2>
-						   <h3 class='section-subheading text-muted'>Auto Spare Parts.</h3>
+						   <h3 class='section-subheading text-muted'>Auto Spare Parts.</h3><br><br>
+						   <button type='submit' class='btn btn-warning' name='Add' id='Add' onclick=\"location.href='Car.php?action=add'\">Add new car</button><br><br>
+
 						   </div>
 						   </div> 
 						   
@@ -59,6 +61,7 @@ body{
 					   <div class='portfolio-hover'>
 						 <div class='portfolio-hover-content'>
 						   <i class='fas fa-plus fa-3x'></i>
+
 						 </div>
 					   </div>
                           <img class='img-fluid' src='img/portfolio/".$Car->getimgName()."'>
@@ -66,7 +69,6 @@ body{
 				    	 </a>
 					 <div class='portfolio-caption'>
 					 <div class='btn-group btn-group-lg'>
-				<button type='submit' class='btn btn-warning' name='Add' id='Add' onclick=\"location.href='Car.php?action=add'\">Add</button>
 				<button type='submit' class='btn btn-warning' name='Edit' id='Edit' onclick=\"location.href='Car.php?action=edit&id=".$Car->getCarID()."'\">Edit</button>
 				<button type='submit' class='btn btn-warning' name='Delete' id='Delete' onclick=\"location.href='Car.php?action=delete&id=".$Car->getCarID()."'\">Delete Car</button>
 
