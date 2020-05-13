@@ -21,7 +21,6 @@ class SparePartController extends Controller
 		$image=$_REQUEST['image'];
 		$CarID=$_REQUEST['CarID'];
 		$user_ID=$_SESSION['ID'];
-		$LocalCompanyID=$_REQUEST['LocalCompanyID'];
 		
 
 		// if(empty($_POST['PartNumber']) || empty($_POST['PartName'])|| empty($_POST['partCountry'])||empty($_POST['carName'])||empty($_POST['partPrice'])||empty($_POST['partQuantity'])||empty($_POST['image']))	
@@ -30,7 +29,7 @@ class SparePartController extends Controller
 		//  </script>";
 	    // }
 	    // else
-		$this->model->addSparePart($PartNumber,$PartName,$carName,$partCountry,$partPrice,$partQuantity,$image,$CarID,$user_ID,$LocalCompanyID);
+		$this->model->addSparePart($PartNumber,$PartName,$carName,$partCountry,$partPrice,$partQuantity,$image,$CarID,$user_ID);
 	}
 
 	public function editSparePart($PartNumber)

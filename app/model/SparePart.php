@@ -12,9 +12,8 @@ class SparePart extends Model
 	private $image;
 	private $CarID;
 	private $user_ID;
-	private $LocalCompanyID;
 	
-	function __construct($PartNumber,$PartName="",$partCountry="",$carName="",$partPrice="",$partQuantity="",$image="",$CarID="",$user_ID="",$LocalCompanyID="")
+	function __construct($PartNumber,$PartName="",$partCountry="",$carName="",$partPrice="",$partQuantity="",$image="",$CarID="",$user_ID="")
 	{
 		$this->PartNumber = $PartNumber;
 		$this->db = $this->connect();
@@ -29,7 +28,6 @@ class SparePart extends Model
         $this->image = $image;
 		$this->CarID=$CarID;
 		$this->user_ID=$user_ID;
-		$this->LocalCompanyID=$LocalCompanyID;
     }
 	}
 
@@ -110,15 +108,7 @@ class SparePart extends Model
 	{
 		return $this->user_ID;
 	}
-	function getLocalCompanyID()
-	{
-		return $this->LocalCompanyID;
-	}
 
-	function setLocalCompanyID($LocalCompanyID)
-	{
-		return $this->LocalCompanyID=$LocalCompanyID;
-	}
 	function readSparePart($PartNumber)
 	{
 		$sql = "SELECT * FROM `sparepart` WHERE PartNumber=".$PartNumber;
@@ -135,7 +125,6 @@ class SparePart extends Model
 			$this->image = $row['image'];
 			$this->CarID=$row['CarID'];
 			$this->user_ID=$row['user_ID'];
-			$this->LocalCompanyID=$row['LocalCompanyID'];
 		}
 		else 
 		{
@@ -148,7 +137,6 @@ class SparePart extends Model
 			$this->image = "";
 			$this->CarID = "";
 			$this->user_ID = "";
-			$this->LocalCompanyID = "";
 
 		}	
 	}
@@ -234,7 +222,6 @@ else
 		image,
 		CarID,
 		user_ID,
-		LocalCompanyID
 		)
 	 	VALUES 
 	 	(
@@ -246,8 +233,7 @@ else
 	 	'$partQuantity',
 		'$image',
 	    '$CarID',
-		'".$_SESSION['ID']."',
-		'$LocalCompanyID'
+		'".$_SESSION['ID']."'
 		 
 
 	 	)";

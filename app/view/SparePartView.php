@@ -239,12 +239,6 @@ class ViewSparePart extends View
 				<input type="text" class="form-control" name="CarID" placeholder="Enter Car ID"/>
 			</div>
 		</div>
-	<br>
-	<div class="form-group">
-	<div>
-		<input type="text" class="form-control" name="LocalCompanyID"   placeholder="Enter Company name"/>
-	</div>
-</div>
 <br>
 		<div class="form-group">
 			<div class="form-group">

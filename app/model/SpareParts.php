@@ -53,7 +53,7 @@ function fillArray()
 		}
 	}
 
-	function addSparePart($PartNumber,$PartName,$carName,$partCountry,$partPrice,$partQuantity,$image,$CarID,$user_ID,$LocalCompanyID)
+	function addSparePart($PartNumber,$PartName,$carName,$partCountry,$partPrice,$partQuantity,$image,$CarID,$user_ID)
 	{
 		$sql="INSERT INTO `sparepart`
 		(
@@ -65,8 +65,7 @@ function fillArray()
 		partQuantity,
 		image,
 		CarID,
-		user_ID,
-		LocalCompanyID
+		user_ID
 		)
 	 	VALUES 
 	 	(
@@ -78,8 +77,7 @@ function fillArray()
 	 	'$partQuantity',
 		'$image',
 	    '$CarID',
-		'".$_SESSION['ID']."',
-		'$LocalCompanyID',
+		'".$_SESSION['ID']."'
 		 )";
 		if($this->db->query($sql) === true)
 		{
