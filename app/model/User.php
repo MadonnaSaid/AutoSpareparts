@@ -1,5 +1,6 @@
 <?php
   require_once(__ROOT__ . "model/Model.php");
+ require_once(__ROOT__ ."db/dbh.php");
 ?>
 
 <?php
@@ -45,7 +46,7 @@ class User extends Model
   }
   function getusername()
   {
-  	return $this->username=$username;
+  	return $this->username;
   }
   function setusername($username)
   {
@@ -53,7 +54,7 @@ class User extends Model
   }
   function getemail()
   {
-  	return  $this->email=$email;
+  	return  $this->email;
   }
   function setemail($email)
   {
@@ -61,7 +62,7 @@ class User extends Model
   }
   function getPassword()
   {
-  	 $this->password=$password;
+  	 $this->password;
   }
   function setPassword($password)
   {
@@ -133,6 +134,7 @@ class User extends Model
 
   function Model_editUser($FullName,$username,$email,$password,$Age,$phoneNumber, $Role)
 	{
+    $db=$db->GetInstance();
 		$editUser="UPDATE user SET FullName='$FullName', username='$username',email='$email',password='$password , Age='$Age', phoneNumber='$phoneNumber' WHERE ID=$this->ID; ";
 		if($this->db->query($editUser)===true)
 		{
@@ -148,6 +150,7 @@ class User extends Model
 
 	function Model_deleteUser()
 	{
+     $db=$db->GetInstance();
 		$deleteUser="DELETE FROM user WHERE ID=$this->ID;";
 		if($this->db->query($deleteUser)===true)
 		{

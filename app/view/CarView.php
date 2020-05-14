@@ -46,10 +46,17 @@ body{
 						 <div class='col-lg-12 text-center' >
 						   <h2 class='section-heading text-uppercase'>Export/Import</h2>
 						   <h3 class='section-subheading text-muted'>Auto Spare Parts.</h3>
+						    <div class='col-lg-12 text-center'>
+					 <div class='portfolio-caption'>
+					 <div class='btn-group btn-group-lg'>
+					 <button type='submit' class='btn btn-warning' name='Add' id='Add' onclick=\"location.href='Car.php?action=add'\">Add</button>
+					 <br>
 						   </div>
 						   </div> 
-						   
-					 <div class='row'>
+						   <br>
+					 
+					  <div class='row'>
+       
 						";
                         
         foreach ($this->model->getCars() as $Car) {
@@ -66,7 +73,7 @@ body{
 				    	 </a>
 					 <div class='portfolio-caption'>
 					 <div class='btn-group btn-group-lg'>
-				<button type='submit' class='btn btn-warning' name='Add' id='Add' onclick=\"location.href='Car.php?action=add'\">Add</button>
+				
 				<button type='submit' class='btn btn-warning' name='Edit' id='Edit' onclick=\"location.href='Car.php?action=edit&id=".$Car->getCarID()."'\">Edit</button>
 				<button type='submit' class='btn btn-warning' name='Delete' id='Delete' onclick=\"location.href='Car.php?action=delete&id=".$Car->getCarID()."'\">Delete Car</button>
 

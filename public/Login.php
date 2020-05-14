@@ -15,15 +15,15 @@ $view = new ViewUser($controller, $model);
 echo $view->loginForm();
 if(isset($_POST["login"]))	
 {
+	
+	$username=$_REQUEST["username"];
+	$hashed_password = hash('sha512', $_REQUEST['password']);
 	if (empty($_REQUEST['username'])|| empty($_REQUEST['password']))
 	{
 		 echo "<script>alert('Please Fill The empty spaces');
 		 </script>";
 	}
 	else{
-	$username=$_REQUEST["username"];
-	$hashed_password = hash('sha512', $_REQUEST['password']);
-	
 
 	$sql = "SELECT * FROM user where username='$username' and password='$hashed_password' ";
 	$dbh = new Dbh();
