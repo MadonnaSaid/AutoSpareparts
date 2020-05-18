@@ -37,11 +37,14 @@ class ViewSparePart extends View
 		
 		  <!-- Custom styles for this template -->
 		  <link href="css/agency.min.css" rel="stylesheet">
-		</head>';
-		
-	
+		</head>
+		<br><br>
+		<div class="col-lg-12 text-center" >
+		<button type="submit" class="btn btn-warning" name="Add" id="Add" onclick=\'location.href="SparePart.php?action=add&id=undefined"\'>Add new spare part</button><br><br></div>';
+
 					foreach ($this->model->getSpareParts() as $SparePart) {
-                        $str.='
+						$str.='
+						
 					<h2 class="text-uppercase" name="hidden_CarID" text-center >'.$SparePart->getcarName() .'</h2>
 
                     
@@ -57,7 +60,6 @@ class ViewSparePart extends View
 							<input type="text" style= "margin-left: 222px" name="quantity" value="1" class="form-group col-md-7" /><br><br>
 
 							<div class="btn-group btn-group-lg">
-					   <button type="submit" class="btn btn-warning" name="Add" id="Add" onclick=\'location.href="SparePart.php?action=add&id=undefined"\'>Add</button>
 					   <button type="submit" class="btn btn-warning" name="Edit" id="Edit" onclick=\'location.href="SparePart.php?action=edit&id='.$SparePart->getPartNumber() .'"\'>Edit</button>
 					   <button type="submit" class="btn btn-warning" name="Delete" id="Delete" onclick=\'location.href="SparePart.php?action=delete&id='.$SparePart->getPartNumber() .'"\'>Delete Part</button>
 	                          </div><br><br>
