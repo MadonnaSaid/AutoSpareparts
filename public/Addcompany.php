@@ -3,7 +3,7 @@
     { 
         session_start(); 
     } 
-// include"menu.php";
+include"menu.php";
 define('__ROOT__', "../app/");
 require_once(__ROOT__ . "model/Companys.php");
 require_once(__ROOT__ . "controller/CompanyController.php");
@@ -20,6 +20,9 @@ if (isset($_GET['action']) && !empty($_GET['action']))
 	switch($_GET['action'])
 	{
 		case 'insert':
+			echo $view->View_addCompany();
+			break;
+		case'insertAction':
 			$controller->Con_addCompany();
 			echo $view->output();
 			break;

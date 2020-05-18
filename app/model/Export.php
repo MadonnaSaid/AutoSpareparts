@@ -6,18 +6,18 @@
 class Export extends Model 
 {
   private $ExportID;
-	private $companyID;
+  private $companyID;
   private $CarID;
   private $PartNumber;
   private $PartName;    
   private $Quantity;
-	private $itemPrice;
+  private $itemPrice;
   private $TotalCost;
 
  function __construct($ExportID,$companyID="",$CarID="",$PartNumber="",$PartName="",$Quantity="",$itemPrice="",$TotalCost="")
   {
     $this->ExportID = $ExportID;
-	    $this->db = $this->connect();
+      $this->db = $this->connect();
 
     if(""===$ExportID)
     {
@@ -29,7 +29,7 @@ class Export extends Model
       $this->CarID = $CarID;
       $this->PartNumber=$PartNumber;
       $this->PartName=$PartName;
-	    $this->Quantity=$Quantity;
+      $this->Quantity=$Quantity;
       $this->itemPrice = $itemPrice;
       $this->TotalCost = $TotalCost;
     }
@@ -45,35 +45,35 @@ class Export extends Model
   }
   function getCarID()
   {
-  	return $this->CarID;
+    return $this->CarID;
   }
   function setCarID($CarID)
   {
-  	 return $this->CarID =$CarID;
+     return $this->CarID =$CarID;
   }
   function getPartNumber()
   {
-  	return $this->PartNumber;
+    return $this->PartNumber;
   }
   function setPartNumber($PartNumber)
   {
-  	return $this->PartNumber=$PartNumber; 
+    return $this->PartNumber=$PartNumber; 
   }
   function getPartName()
   {
-  	return  $this->PartName;
+    return  $this->PartName;
   }
   function setPartName($PartName)
   {
-  	return  $this->PartName=$PartName;
+    return  $this->PartName=$PartName;
   }
   function getQuantity()
   {
-  	 $this->Quantity;
+     $this->Quantity;
   }
   function setQuantity($Quantity)
   {
-  	 $this->Quantity=$Quantity;
+     $this->Quantity=$Quantity;
   }
   function getitemPrice() 
   {
@@ -96,13 +96,13 @@ class Export extends Model
 
   function getExportID()
   {
-  	return $this->ExportID;
+    return $this->ExportID;
   }
 
   function readExport($ExportID)
   {
-  	$Export=" SELECT * FROM export where ExportID=".$ExportID;
-  	$db = $this->connect();
+    $Export=" SELECT * FROM export where ExportID=".$ExportID;
+    $db = $this->connect();
 
     $result = $db->query($Export);
 
@@ -111,51 +111,51 @@ class Export extends Model
         $row = $db->fetchRow();
         $this->companyID=$row["localCompanyID"];
         $this->CarID = $row["CarID"];
-		    $this->PartNumber=$row["PartNumber"];
-		    $this->PartName=$row["PartName"];
-		    $this->Quantity=$row["Quantity"];
+        $this->PartNumber=$row["PartNumber"];
+        $this->PartName=$row["PartName"];
+        $this->Quantity=$row["Quantity"];
         $this->itemPrice = $row["itemPrice"];
-		    $this->TotalCost = $row["TotalCost"];
+        $this->TotalCost = $row["TotalCost"];
     }
     else 
     {
       $this->companyID="";
-    	$this->CarID="";
-    	$this->PartNumber="";
-    	$this->PartName="";
-    	$this->Quantity="";
-    	$this->itemPrice="";
-    	$this->TotalCost="";
+      $this->CarID="";
+      $this->PartNumber="";
+      $this->PartName="";
+      $this->Quantity="";
+      $this->itemPrice="";
+      $this->TotalCost="";
     }
   }
 
   function Model_editExport($companyID,$CarID,$PartNumber,$PartName,$Quantity,$itemPrice,$TotalCost)
-	{
-		$editExport="UPDATE `export` SET `localCompanyID`='$companyID',`CarID`='$CarID',`PartNumber`='$PartNumber',`PartName`='$PartName',`Quantity`='$Quantity',`itemPrice`='$itemPrice',`TotalCost`='$TotalCost' WHERE ExportID=$this->ExportID; ";
-		if($this->db->query($editExport)===true)
-		{
-			echo"updated successfully.";
-			$this->readExport($this->ExportID);
-		}
-		else
-		{
+  {
+    $editExport="UPDATE `export` SET `localCompanyID`='$companyID',`CarID`='$CarID',`PartNumber`='$PartNumber',`PartName`='$PartName',`Quantity`='$Quantity',`itemPrice`='$itemPrice',`TotalCost`='$TotalCost' WHERE ExportID=$this->ExportID; ";
+    if($this->db->query($editExport)===true)
+    {
+      echo"updated successfully.";
+      $this->readExport($this->ExportID);
+    }
+    else
+    {
             echo "ERROR: Could not able to execute $editExport. " . $conn->error;
-    	}
-	}
+      }
+  }
 
-	function Model_deleteExport()
-	{				
-		$deleteExport="DELETE FROM export WHERE  ExportID=$this->ExportID ;";
-		if($this->db->query($deleteExport)===true)
-		{
-			 echo "deletet successfully.";
-		}
-		else
-		{
+  function Model_deleteExport()
+  {       
+    $deleteExport="DELETE FROM export WHERE  ExportID=$this->ExportID ;";
+    if($this->db->query($deleteExport)===true)
+    {
+       echo "deletet successfully.";
+    }
+    else
+    {
             echo "ERROR: Could not able to execute $deleteExport. " . $conn->error;
         }
-	}
+  }
 
-	//fadel edit employee henas
+  //fadel edit employee henas
 }
 ?>

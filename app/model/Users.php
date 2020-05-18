@@ -20,11 +20,24 @@ class Users extends Model
 			array_push($this->Users, new User($row["ID"],$row["FullName"],$row["username"],$row["email"],$row["password"],$row["Age"],$row["phoneNumber"],$row["Role"]));
 		}
 	}
-
-	function getUsers() 
-	{
+function getUsers() {
+		$this->fillArray();  
 		return $this->Users;
 	}
+
+	function getUser($ID)
+	{
+		foreach($this->Users as $User)
+		{
+			if ($ID == $User->getID()) {
+				return $User;
+			}
+		}
+	}
+	/*function getUsers() 
+	{
+		return $this->Users;
+	}*/
 
 	function readUsers()
 	{

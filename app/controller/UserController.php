@@ -36,7 +36,7 @@ class UserController extends controller
 		$FullName = $_REQUEST['FullName'];
 		$username=$_REQUEST['username'];
 		$email=$_REQUEST['email'];
-		$password = $_REQUEST['password'];
+		$password = hash('sha512', $_REQUEST['password']);
 		$Age = $_REQUEST['Age'];
 		$phoneNumber = $_REQUEST['phoneNumber'];
 		$Role=$_REQUEST['Role'];
