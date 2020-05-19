@@ -19,6 +19,11 @@ class UserController extends controller
 		}
 
 		$username = $_REQUEST['username'];
+		if (!preg_match("/^[a-zA-Z ]*$/",$username)) 
+		{
+ 			echo "<script>alert('Only letters and white space allowed');
+		 		</script>";
+		}
 
 		$email=$_REQUEST['email'];
 		if (!filter_var($email, FILTER_VALIDATE_EMAIL)) 
