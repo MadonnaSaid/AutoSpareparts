@@ -18,7 +18,7 @@ class Exports extends Model
 		$result = $this->readExport();
 		while ($row = $result->fetch_assoc())
 		{
-			array_push($this->Exports, new Export($row['ExportID'],$row["localCompanyID"],$row["CarID"],$row["PartNumber"],$row["PartName"],$row["Quantity"],$row["itemPrice"],$row["TotalCost"]));
+			array_push($this->Exports, new Export($row['ExportID'],$row["companyID"],$row["CarID"],$row["PartNumber"],$row["PartName"],$row["Quantity"],$row["itemPrice"],$row["TotalCost"]));
 		}
 	}
 
@@ -45,7 +45,7 @@ class Exports extends Model
 		$sql = "SELECT * FROM export";
 
 		$result = $this->db->query($sql);
-		if ($result->num_rows > -1){
+		if ($result->num_rows > 0){
 			return $result;
 		}
 		else {
